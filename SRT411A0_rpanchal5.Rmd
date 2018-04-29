@@ -1,0 +1,190 @@
+---
+title: "Assignment 0"
+author: "Roshan Panchal"
+date: "April 29, 2018"
+output:
+  pdf_document: default
+  html_document: default
+Student ID: 103352167
+Github Username: rpanchal93
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+3.1 Calculator ToDo
+
+Compute the difference between 2014 and the start year at this university; and divide this byl the difference between 2014 and the year you were born. Mulitply this with 100 to get the percentage of your life you have spent at this university. Use brackets if you need them.
+
+```{r}
+(2017-2014)/(2014-1993)*100
+
+```
+
+
+3.2  Workspace ToDo
+
+Repeat the previous ToDo, but with several steps in between. you can give the veriables any name you want, but the name has to start with a letter.
+
+```{r}
+
+b = 2017-2014
+e = 2017-1993
+(b)/(e)*100
+
+```
+
+
+3.4 Function ToDo
+
+```{r}
+
+v=c(4, 5, 8, 11)
+sum(x=v)
+
+```
+
+3.5 Plots ToDo
+
+```{r}
+p=rnorm(100)
+plot(p)
+
+```
+
+4 Help & Documentation ToDo
+
+```{r}
+help(sqrt)
+
+```
+
+5 Scripts ToDo - make a script that generates 100 random numbers and plot them, run this script mulitple times
+```{r}
+source("firstscript.R")
+source("firstscript.R")
+source("firstscript.R")
+
+```
+
+6.2 Matrices ToDo - Put the numbers 31 to 60 in a vector named P and in a mtrix with 6 rows and 5 columns named Q. Use the function seq .
+
+```{r}
+P=seq(from=31, to=60, by=1)
+Q=matrix(data=c(31:60),ncol = 5, nrow = 6)
+Q
+
+```
+
+6.3 Data Frames ToDo
+
+```{r}
+x1 = rnorm(100)
+x2 = rnorm(100)
+x3 = rnorm(100)
+t=data.frame(a=x1,b=x1+x2,c=x1+x2+x3)
+plot(t)
+
+```
+
+7 Graphics ToDo
+
+```{r}
+
+x1 = rnorm(100)
+x2 = rnorm(100)
+x3 = rnorm(100)
+t = data.frame(x1,x1+x2,x1+x2+x3)
+plot(t$x1, type="l", ylim=range(t), lwd=3, col=rgb(1,0,0,0.3))
+lines(t$b, type="s", lwd=2, col=rgb(0.3,0.4,0.3,0.9))
+points(t$c, pch=20, cex=4, col=rgb(0,0,1,0.3))
+
+```
+Meaning of:
+RGB: RGB is the color specification for the graphic
+PCH: PCH is the Plotting Character or symbol that can be choosen
+LWD: this is the line width
+CEX: Number indicating amount by which plotting text and symbols should be scalled by.
+
+
+8 Reading & Writing data files ToDo
+
+```{r}
+
+
+d = read.table(file = "tst1.txt", header = TRUE)
+d1 = data.frame(a = c(1,2,4,8,16,32), g = c(2,4,8,16,32,64), x = c(3,6,12,24,48,96))
+d1
+write.table(d1$g*5, file = "tst2.txt", row.names = FALSE)
+d1$g*5
+```
+
+9 Not Available Data ToDo
+
+```{r}
+v=c(rnorm(100))
+mean(sqrt(v))
+
+```
+When we try to compute the square root of a vector of 100 random number we get this error: NaNs produced[1] NaN which is beuase a negative number was generated which cannot be square rooted.
+Tof ix this we can run the code below which sets a min of 0 so it does not go below 0 into a negative number.
+
+```{r}
+v=c(runif(n=100, min = 0))
+v1=sqrt(v)
+mean(v1)
+
+```
+
+
+10.2 Dates ToDo
+
+```{r}
+data1=strptime(c("20180425","20141205","20180726"),format = "%Y%m%d")
+data2=c(10,20,32)
+plot(data1,data2,xlab="date",ylab="presents",main="# of presents I expected")
+
+```
+
+
+11.2 For-Loop ToDo
+
+```{r}
+a=seq(from=1,to=100)
+b=c()
+for(i in 1:100)
+ {if (i<5 | i >90)
+   {b[i]=a[i] * 10
+   }
+  else{
+   b[i]=a[i]*0.1
+   }
+}
+b
+
+```
+
+11.3 Writing your own function ToDo
+
+```{r}
+
+k=1:10
+funct = function(arg1)
+{
+  l = length(arg1)
+  for(i in 1:l)
+  {
+    if (arg1[i] < 5 | arg1[i] > 90)
+    {
+      arg1[i] = arg1[i] * 10
+    } else
+    {
+      arg1[i] = arg1[i] * 0.1
+    }
+  }
+  return (arg1)
+}
+funct(arg1=k)
+
+```
